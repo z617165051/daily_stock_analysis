@@ -69,7 +69,7 @@ class StockAnalysisPipeline:
     def __init__(
         self,
         config: Optional[Config] = None,
-        max_workers: Optional[int] = None,
+        max_workers: Optional[int] = 4,
         source_message: Optional[BotMessage] = None,
         query_id: Optional[str] = None,
         query_source: Optional[str] = None,
