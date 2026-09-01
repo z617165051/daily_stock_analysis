@@ -35,6 +35,14 @@ jobs:
     timeout-minutes: ${{ fromJSON(vars.ANALYSIS_TIMEOUT_MINUTES || '120') }}
     
     steps:
+      - name: Debug Schedule Info
+        run: |
+          echo "github.event_name=${{ github.event_name }}"
+          echo "github.workflow=${{ github.workflow }}"
+          echo "github.sha=${{ github.sha }}"
+          echo "Local Time: $(date)"
+          echo "UTC Time: $(date -u)"
+          
       - name: 随机延迟（避免固定时间访问）
         run: sleep $((RANDOM % 60))  # 随机延迟0-60秒启动
       
